@@ -1,0 +1,90 @@
+<%- include('partials/header') %>
+
+
+    <h2>Hotel Page</h2>
+
+
+
+    <a href="/sellunsoldfood">Sell Unsold Food On Discount</a>
+    <a href="/donatewastefood">donate Waste Food</a>
+    
+    <button type="button" class="collapsible">Donate Waste Food</button>
+        <div class="content">
+            <h1>Add Food Details</h1>
+            <form action="/hotel" method="POST">
+        
+                <label for="hotelnm">Enter Hotel Name:</label>
+                <input type="text" id="hotelnm" name="hotelnm" required><br><br>
+
+                <label for="citynm">Enter City Name:</label>
+                <input type="text" id="citynm" name="citynm" required><br><br>
+              
+     
+              
+                <a onclick="getLocation()">Get my location</a>
+                <input type="hidden" id="location" name="location">
+                <!-- <input type="hidden" id="lon" name="lon"> -->
+              
+                <button type="submit">Add Food Details</button>
+              </form>
+        
+      
+        </div>
+
+
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
+
+
+function getLocation() {
+		if (navigator.geolocation) {
+		  navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+		  alert("Geolocation is not supported by this browser.");
+		}
+	  }
+	  
+	  function showPosition(position) {
+		var lat = position.coords.latitude;
+		var lon = position.coords.longitude;
+		var googleMapsLink = "https://www.google.com/maps/search/?api=1&query=" + lat + "," + lon;
+		var mapButton = document.createElement("a");
+		mapButton.href = googleMapsLink;
+		mapButton.target = "_blank";
+		mapButton.innerText = "View my location on Google Maps";
+		document.body.appendChild(mapButton);
+	  
+		// set the lat and lon values in the hidden input fields
+		document.getElementById("location").value = googleMapsLink;
+		// document.getElementById("lon").value = lon;
+	  }
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+        </script>
+
+</html>

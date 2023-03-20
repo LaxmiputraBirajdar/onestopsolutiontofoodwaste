@@ -1,0 +1,63 @@
+<%- include('partials/header') %>
+
+<h1>Available Food</h1>
+
+<input type="text" id="searchInput" placeholder="Search by City Name...">
+<button onclick="searchFood()">Search</button>
+
+<% food.forEach(function(item) { %>
+  <div class="food-Detail">
+    <div class="food-Detail__header">
+      <h2>Food Details</h2>
+    </div>
+    <div class="food-Detail__content">
+      <div class="food-Detail__row">
+        <span class="food-Detail__label">Food Name:</span>
+        <span class="food-Detail__value"><%= item.foodName %></span>
+      </div>
+      <div class="food-Detail__row">
+        <span class="food-Detail__label">Donor Name:</span>
+        <span class="food-Detail__value"><%= item.donorName %></span>
+      </div>
+      <div class="food-Detail__row">
+        <span class="food-Detail__label">Food Type:</span>
+        <span class="food-Detail__value"><%= item.foodType %></span>
+      </div>
+      <div class="food-Detail__row">
+        <span class="food-Detail__label">Expiry Date:</span>
+        <span class="food-Detail__value"><%= item.expiryDate %></span>
+      </div>
+      <div class="food-Detail__row">
+        <span class="food-Detail__label">Quantity:</span>
+        <span class="food-Detail__value"><%= item.quantity %></span>
+      </div>
+      <div class="food-Detail__row">
+        <span class="food-Detail__label">City Name:</span>
+        <span class="food-Detail__value"><%= item.cityName %></span>
+      </div>
+      <div class="food-Detail__row">
+        <span class="food-Detail__label">Location:</span>
+        <a href="<%= item.location %>" class="food-Detail__link"><%= item.location %></a>
+      </div>
+    </div>
+  </div>
+<% }) %>
+
+<script>
+function searchFood() {
+  var input, filter, foodDetails, cityName, i;
+  input = document.getElementById("searchInput");
+  filter = input.value.toUpperCase();
+  foodDetails = document.getElementsByClassName("food-Detail");
+  for (i = 0; i < foodDetails.length; i++) {
+    cityName = foodDetails[i].getElementsByTagName("p")[5];
+    if (cityName.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      foodDetails[i].style.display = "";
+    } else {
+      foodDetails[i].style.display = "none";
+    }
+  }
+}
+</script>
+
+<%- include('partials/footer') %>

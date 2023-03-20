@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+   
+    <h1>Add Food Details</h1>
+	<form action="/addfood" method="POST">
+
+		<label for="donorName">Enter Your Name:</label>
+		<input type="text" id="donorName" name="donorName" required><br><br>
+	  
+		<label for="foodName">Food Name:</label>
+		<input type="text" id="foodName" name="foodName" required><br><br>
+	  
+		<label for="foodType">Food Type:</label>
+		<input type="text" id="foodType" name="foodType" required><br><br>
+	  
+		<label for="expiryDate">Expiry Date:</label>
+		<input type="date" id="expiryDate" name="expiryDate" required><br><br>
+	  
+		<label for="quantity">Quantity:</label>
+		<input type="number" id="quantity" name="quantity" required><br><br>
+
+		<label for="citynm">Quantity:</label>
+		<input type="text" id="citynm" name="citynm" required><br><br>
+	  
+		<a onclick="getLocation()">Get my location</a>
+		<input type="hidden" id="location" name="location">
+		<!-- <input type="hidden" id="lon" name="lon"> -->
+	  
+		<button type="submit">Add Food Details</button>
+	  </form>
+
+	  <% if (success) { %>
+		<div class="alert alert-success" role="alert">
+		  Food added successfully!
+		</div>
+	  <% } %>
+	  
+	  <script>
+	  function getLocation() {
+		if (navigator.geolocation) {
+		  navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+		  alert("Geolocation is not supported by this browser.");
+		}
+	  }
+	  
+	  function showPosition(position) {
+		var lat = position.coords.latitude;
+		var lon = position.coords.longitude;
+		var googleMapsLink = "https://www.google.com/maps/search/?api=1&query=" + lat + "," + lon;
+		var mapButton = document.createElement("a");
+		mapButton.href = googleMapsLink;
+		mapButton.target = "_blank";
+		mapButton.innerText = "View my location on Google Maps";
+		document.body.appendChild(mapButton);
+	  
+		// set the lat and lon values in the hidden input fields
+		document.getElementById("location").value = googleMapsLink;
+		// document.getElementById("lon").value = lon;
+	  }
+	  </script>
+</body>
+</html>
