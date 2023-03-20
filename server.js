@@ -14,9 +14,12 @@ app.use(bodyparser.urlencoded({
 }))
 
 
-mongoose.connect("mongodb://0.0.0.0:27017/onstopsolution")
+mongoose.connect("mongodb+srv://onstopsolution:90907878@cluster0.08v6sws.mongodb.net/onstopsolution?retryWrites=true&w=majority")
 .then(()=>console.log("Connected"))
 .catch((error)=>console.log(error));
+
+
+
 
 
 const userSchema = new mongoose.Schema({
