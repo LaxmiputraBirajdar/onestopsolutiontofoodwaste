@@ -3,12 +3,13 @@ const mongoose = require("mongoose");
 const ejs = require("ejs");
 const bodyparser = require("body-parser")
 const encrypt = require("mongoose-encryption")
-const multer = require("multer");
+
 const app = express();
 
 app.set('view engine', 'ejs');
 
 app.use(express.static("public"));
+
 app.use(bodyparser.urlencoded({
     extended:true
 }))
@@ -251,42 +252,24 @@ const foodToSellSchema = new mongoose.Schema({
 const FoodToSell = mongoose.model("FoodToSell", foodToSellSchema);
 
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads");
-  },
-  filename: function (req, file, cb) {
-    // Generate a unique filename by appending the current timestamp
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, file.fieldname + "-" + uniqueSuffix);
-  }
-});
-
-// Create a multer upload object with the configured storage options
-const upload = multer({ storage: storage });
-
-
-
-
-
-app.post("/sellunsoldfood", upload.single("foodImage"), function(req, res){
+app.post("/sellunsoldfood",function(req, res){
   const newFoodToSell = new FoodToSell({
     hotelName : req.body.hotelName,
     foodName: req.body.foodName,
     foodType : req.body.foodType,
     quantity: req.body.quantity,
     location: req.body.location,
-    discount: req.body.discount,
-    imagePath: req.file ? req.file.path : null // Store the file path in the database
+    discount: req.body.discount
+   
   });
 
-  newFoodToSell.save(function(err) {
-    if (err) {
-      console.log(err);
-      res.render("sellunsoldfood", { success: false });
-    } else {
-      res.render("sellunsoldfood", { success: true });
-    }
+  newFoodToSell.save()
+  .then(() => {
+    res.render("sellunsoldfood", { success: true });
+  })
+  .catch((err) => {
+    console.log(err);
+    res.render("sellunsoldfood", { success: false });
   });
 });
 

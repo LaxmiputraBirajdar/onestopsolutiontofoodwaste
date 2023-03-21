@@ -1,16 +1,21 @@
-<%- include('partials/header') %>
-
-
-    <h2>Hotel Page</h2>
+<%- include('partials/header2') %>
 
 
 
-    <a href="/sellunsoldfood">Sell Unsold Food On Discount</a>
-    <a href="/donatewastefood">donate Waste Food</a>
+
+    <div class="par">
+      <p>"Welcome hotel owners! We offer a unique solution to reduce food waste by selling unsold food from your hotel on our platform. Join our community of conscious businesses and make a positive impact. Sign up today and start selling your surplus food!"</p>
+    </div>
+
+
+
+    <button class="btn2" style="width: 400px; height: 50px; color: white; margin-left: 540px; border-radius: 20px;"><a href="/sellunsoldfood" style="color: white;">Sell Unsold Food On Discount</a></button><br><br><br>
+ 
     
-    <button type="button" class="collapsible">Donate Waste Food</button>
+    <button type="button" class="collapsible btn2 text-center"  style="width: 400px; height: 50px; color: white; margin-left: 540px; border-radius: 20px;">Donate Waste Food</button>
+
         <div class="content">
-            <h1>Add Food Details</h1>
+            <h4 class="text-center">Add Food Details</h4>
             <form action="/hotel" method="POST">
         
                 <label for="hotelnm">Enter Hotel Name:</label>
@@ -21,11 +26,11 @@
               
      
               
-                <a onclick="getLocation()">Get my location</a>
+                <a onclick="getLocation()" style="color: rgb(53, 53, 237); font-weight: 700;">Click Here To Get Your Location<i class="fa-sharp fa-solid fa-location-dot"></i></a>
                 <input type="hidden" id="location" name="location">
                 <!-- <input type="hidden" id="lon" name="lon"> -->
               
-                <button type="submit">Add Food Details</button>
+                <button class="btn2" style="font-weight: 600; color: white; border-radius: 10px;" type="submit">Add Food Details</button>
               </form>
         
       

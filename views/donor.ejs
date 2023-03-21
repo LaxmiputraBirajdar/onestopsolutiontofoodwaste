@@ -1,26 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Donot Page</h1>
-    <h1>Welcome, <%= user.name %> <%= user.surname %></h1>
-    <p>Your email is <%= user.email %></p>
+<%- include('partials/header') %>
+
+    <h3 class="text-center">Welcome, <%= user.name %> <%= user.surname %></h3>
+
     
-    <button onclick="openFoodForm()">Add Food</button>
+    <!-- <button onclick="openFoodForm()">Add Food</button> -->
+
+    <div class="orgdiv" style="margin-top: 100px;">
+
+      <div class="organization">
+      
+      <a href="/addfood">   <img src="/image/addfood.jpg" alt="Food Photo">
+          <h4 class="text-center">Add Food</h4>
+        </div></a>
+        
+      </div>
 
 
 
 
-    <script>
+    <!-- <script>
     function openFoodForm() {
       window.open("/addfood", "_blank", "width=500, height=500");
     }
-    </script>
+    </script> -->
 
 
     

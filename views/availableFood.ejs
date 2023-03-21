@@ -1,46 +1,58 @@
-<%- include('partials/header') %>
+<%- include('partials/header2') %>
 
-<h1>Available Food</h1>
+<div class="afood">
 
-<input type="text" id="searchInput" placeholder="Search by City Name...">
-<button onclick="searchFood()">Search</button>
+<h1 class="text-center">Available Food</h1>
+
+<div class="search text-center">
+
+  <input type="text" id="searchInput" class="text-center" style="margin-left: 600px;" placeholder="Search by City Name...">
+  <button onclick="searchFood()">Search</button>
+
+</div>
+
+<h2 class="text-center">Food Details</h2>
 
 <% food.forEach(function(item) { %>
-  <div class="food-Detail">
+  <div class="food-Detail text-center">
     <div class="food-Detail__header">
-      <h2>Food Details</h2>
-    </div>
-    <div class="food-Detail__content">
-      <div class="food-Detail__row">
-        <span class="food-Detail__label">Food Name:</span>
-        <span class="food-Detail__value"><%= item.foodName %></span>
+      
+ 
+    
+        <h5 class="food-Detail__label">Food Name: <%= item.foodName %></h5>
+        
+     
+        <h5 class="food-Detail__label">Donor Name: <%= item.donorName %></h5>
+        
+
+        <h5 class="food-Detail__label">Food Type: <%= item.foodType %></h5>
+        
+
+        <h5 class="food-Detail__label">Expiry Date: <%= item.expiryDate %></h5>
+        
+   
+        <h5 class="food-Detail__label">Quantity: <%= item.quantity %></h5>
+        
+   
+        <h5 class="food-Detail__label">City Name: <%= item.cityName %></h5>
+        
       </div>
-      <div class="food-Detail__row">
-        <span class="food-Detail__label">Donor Name:</span>
-        <span class="food-Detail__value"><%= item.donorName %></span>
-      </div>
-      <div class="food-Detail__row">
-        <span class="food-Detail__label">Food Type:</span>
-        <span class="food-Detail__value"><%= item.foodType %></span>
-      </div>
-      <div class="food-Detail__row">
-        <span class="food-Detail__label">Expiry Date:</span>
-        <span class="food-Detail__value"><%= item.expiryDate %></span>
-      </div>
-      <div class="food-Detail__row">
-        <span class="food-Detail__label">Quantity:</span>
-        <span class="food-Detail__value"><%= item.quantity %></span>
-      </div>
-      <div class="food-Detail__row">
-        <span class="food-Detail__label">City Name:</span>
-        <span class="food-Detail__value"><%= item.cityName %></span>
-      </div>
+
+
+      <div class="2">
       <div class="food-Detail__row">
         <span class="food-Detail__label">Location:</span>
-        <a href="<%= item.location %>" class="food-Detail__link"><%= item.location %></a>
+        <a href="<%= item.location %>" class="food-Detail__link">Click to go <i class="fa-sharp fa-solid fa-location-dot"></i></a>
       </div>
     </div>
+
+
+    </div>
+
   </div>
+
+ 
+
 <% }) %>
 
 <script>

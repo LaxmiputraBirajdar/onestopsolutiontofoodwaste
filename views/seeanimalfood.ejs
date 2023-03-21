@@ -1,23 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<%- include('partials/header') %>
 
-    <h2>Available Animal Food is</h2>
+<div class="divfood">
 
-    <input type="text" id="searchInput" placeholder="Search by City Name...">
-    <button onclick="searchFood()">Search</button>
+    <h2 class="mar">Available Animal Food is</h2>
 
+    <input class="mar" type="text" id="searchInput" placeholder="Search by City Name...">
+    <button class="btn2 mar" style="color: white; font-weight: 700; width: 130px; height: 40px; border-radius: 20px;" onclick="searchFood()">Search</button>
+
+
+</div>
     <% Animalfd.forEach(function(item) { %>
-        <div class="food-Detail" style="background-color: red;">
-          <h2><%= item.hotelName %></h2>
-          <h2><%= item.cityName %></h2>
-          <h2><%= item.location %></h2>
+        <div class="food-Detail">
+          <h6>Hotel Name : <%= item.hotelName %></h6>
+          <h6>City Name : <%= item.cityName %></h6>
+          <a href="<%= item.location %>">Click<i class="fa-sharp fa-solid fa-location-dot"></i></a>
         </div>
       <% }) %>
     
@@ -28,7 +24,7 @@
             filter = input.value.toUpperCase();
             foodDetails = document.getElementsByClassName("food-Detail");
             for (i = 0; i < foodDetails.length; i++) {
-                cityName = foodDetails[i].getElementsByTagName("h2")[1];
+                cityName = foodDetails[i].getElementsByTagName("h6")[1];
                 if (cityName.innerHTML.toUpperCase().indexOf(filter) > -1) {
                     foodDetails[i].style.display = "";
                 } else {
