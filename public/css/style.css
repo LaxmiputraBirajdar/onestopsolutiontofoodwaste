@@ -25,7 +25,8 @@ ul.nav {
         height:36px; line-height:36px;
         /* background:#0d7963; you can change the backgorund color here. */
         font-family:Arial, Helvetica, sans-serif;
-        font-size:13px;
+        font-size:20px;
+        margin-top: 5px;
     }
     ul.nav li {
         /* border-right:1px solid #189b80; you can change the border color matching to your background color */
@@ -37,10 +38,7 @@ ul.nav {
         color:#ccece6;
         text-decoration:none;
     }
-    ul.nav a:hover,
-    ul.nav li.current a {
-        /* background:#086754; */
-    }
+ 
 
     .header{
         display: flex;
@@ -601,4 +599,61 @@ footer {
 
 .footer-content a:hover {
   text-decoration: underline;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+form {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 20px;
+}
+
+textarea {
+  height: 150px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+a{
+  text-decoration: none;
 }

@@ -5,11 +5,9 @@
   
 
     <ul class="nav">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Products</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
 
     <div class="title">
@@ -149,7 +147,7 @@
   <br>
 
 
-  <div class="about">
+  <div class="about" id="about">
     <h2 class="text-center">About Us </h2> 
     <p>Welcome to our food waste reduction web app! We are dedicated to reducing food waste by connecting donors, organizations, hotels, customers, and animal shelters in a unique and innovative way.</p><br>
 
@@ -196,6 +194,27 @@
 
   
 </div> -->
+
+
+
+<div class="container">
+  <form method="post">
+    <h1>Contact Us</h1>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email address">
+
+    <label for="subject">Subject</label>
+    <input type="text" id="subject" name="subject" placeholder="Enter the subject of your message">
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+
+    <button class="btn2" style="color: white;">Submit</button>
+  </form>
+</div>
 
 
 <footer>
